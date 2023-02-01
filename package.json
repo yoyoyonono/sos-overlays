@@ -2,6 +2,7 @@
   "name": "sos-overlays",
   "version": "0.0.0",
   "compatibleDashboardVersion": "^4.0.0",
+  "compatibleGameVersions": ["SPLATOON_2", "SPLATOON_3"],
   "description": "Overlays Swim or Sink, a weekly Splatoon tournament.",
   "author": {
     "name": "inkfarer",
