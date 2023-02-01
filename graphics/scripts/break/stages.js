@@ -1,40 +1,56 @@
-// Stages
-
-const mapNameToImagePath = {"Ancho-V Games": "S2_Stage_Ancho-V_Games.png",
-	"Arowana Mall":"S2_Stage_Arowana_Mall.png",
-	"Blackbelly Skatepark":"S2_Stage_Blackbelly_Skatepark.png",
-	"Camp Triggerfish":"S2_Stage_Camp_Triggerfish.png",
-	"Goby Arena":"S2_Stage_Goby_Arena.png",
-	"Humpback Pump Track":"S2_Stage_Humpback_Pump_Track.png",
-	"Inkblot Art Academy":"S3_Stage_Inkblot_Art_Academy.jpg",
-	"Kelp Dome":"S2_Stage_Kelp_Dome.png",
-	"MakoMart":"S3_Stage_Mako_Mart.jpg",
-	"Manta Maria":"S2_Stage_Manta_Maria.png",
-	"Moray Towers":"S2_Stage_Moray_Towers.png",
-	"Musselforge Fitness":"S2_Stage_Musselforge_Fitness.png",
-	"New Albacore Hotel":"S2_Stage_New_Albacore_Hotel.png",
-	"Piranha Pit":"S2_Stage_Piranha_Pit.png",
-	"Port Mackerel":"S2_Stage_Port_Mackerel.png",
-	"Shellendorf Institute":"S2_Stage_Shellendorf_Institute.png",
-	"Shifty Station":"S2_Stage_Shifty_Station.png",
-	"Snapper Canal":"S2_Stage_Snapper_Canal.png",
-	"Starfish Mainstage":"S2_Stage_Starfish_Mainstage.png",
-	"Sturgeon Shipyard":"S3_Stage_Sturgeon_Shipyard.jpg",
-	"The Reef":"S2_Stage_The_Reef.png",
-	"Wahoo World":"S3_Stage_Wahoo_World.jpg",
-	"Walleye Warehouse":"S2_Stage_Walleye_Warehouse.png",
-	"Skipper Pavilion":"S2_Stage_Skipper_Pavilion.png",
-    "Scorch Gorge":"S3_Stage_Scorch_Gorge.jpg",
-    "Eeltail Alley":"S3_Stage_Eeltail_Alley.jpg",
-    "Hagglefish Market":"S3_Stage_Hagglefish_Market.webp",
-    "Undertow Spillway":"S3_Stage_Undertow_Spillway.webp",
-    "Mincemeat Metalworks":"S3_Stage_Mincemeat_Metalworks.png",
-    "Hammerhead Bridge":"S3_Stage_Hammerhead_Bridge.jpg",
-    "Museum d'Alfonsino":"S3_Stage_Museum_dAlfonsino.jpg",
-    "Mahi-Mahi Resort":"S3_Stage_Mahi_Mahi_Resort.jpg",
-
-	"Unknown Stage":"unnamed-unknown-map.png",
-	"Counterpick":"unnamed-unknown-map.png"};
+const stagesElem = document.getElementById('stages-grid');
+const mapNameToImagePath = {
+	"Ancho-V Games": "S2_Stage_Ancho-V_Games.png",
+	"Arowana Mall": "S2_Stage_Arowana_Mall.png",
+	"Blackbelly Skatepark": "S2_Stage_Blackbelly_Skatepark.png",
+	"Camp Triggerfish": "S2_Stage_Camp_Triggerfish.png",
+	"Goby Arena": "S2_Stage_Goby_Arena.png",
+	"Humpback Pump Track": "S2_Stage_Humpback_Pump_Track.png",
+	"Inkblot Art Academy": "S2_Stage_Inkblot_Art_Academy.png",
+	"Kelp Dome": "S2_Stage_Kelp_Dome.png",
+	"MakoMart": "S2_Stage_MakoMart.png",
+	"Manta Maria": "S2_Stage_Manta_Maria.png",
+	"Moray Towers": "S2_Stage_Moray_Towers.png",
+	"Musselforge Fitness": "S2_Stage_Musselforge_Fitness.png",
+	"New Albacore Hotel": "S2_Stage_New_Albacore_Hotel.png",
+	"Piranha Pit": "S2_Stage_Piranha_Pit.png",
+	"Port Mackerel": "S2_Stage_Port_Mackerel.png",
+	"Shellendorf Institute": "S2_Stage_Shellendorf_Institute.png",
+	"Shifty Station": "S2_Stage_Shifty_Station.png",
+	"Snapper Canal": "S2_Stage_Snapper_Canal.png",
+	"Starfish Mainstage": "S2_Stage_Starfish_Mainstage.png",
+	"Sturgeon Shipyard": "S2_Stage_Sturgeon_Shipyard.png",
+	"The Reef": "S2_Stage_The_Reef.png",
+	"Wahoo World": "S2_Stage_Wahoo_World.png",
+	"Walleye Warehouse": "S2_Stage_Walleye_Warehouse.png",
+	"Skipper Pavilion": "S2_Stage_Skipper_Pavilion.png",
+	"Unknown Stage": "low-ink-unknown-map.png",
+	"Counterpick": "low-ink-unknown-map.png",
+	"Museum d'Alfonsino": "S3_Stage_Museum_d_Alfonsino.png",
+	"Scorch Gorge": "S3_Scorch_Gorge.png",
+	"Eeltail Alley": "S3_Eeltail_Alley.png",
+	"Hagglefish Market": "S3HagglefishMarketIcon.png",
+	"Undertow Spillway": "S3UndertowSpillwayIcon.png",
+	"Mincemeat Metalworks": "S3MincemeatMetalworksIcon.png",
+	"Hammerhead Bridge": "S3HammerheadBridgeIcon.png",
+	"Mahi-Mahi Resort": "S3MahiMahiResortIcon.png",
+	"Brinewater Springs": "S3_Brinewater_Springs.png",
+	"Flounder Heights": "S3_Stage_Flounder_Heights.png"
+};
+const winnerTls = {
+	0: gsap.timeline(),
+	1: gsap.timeline(),
+	2: gsap.timeline(),
+	3: gsap.timeline(),
+	4: gsap.timeline(),
+	5: gsap.timeline(),
+	6: gsap.timeline(),
+};
+const stagesTl = gsap.timeline();
+const sbTls = {
+	'a': gsap.timeline(),
+	'b': gsap.timeline()
+};
 
 function createMapListElems(maplist) {
 	let stagesGrid = document.querySelector('.stagesGrid');
